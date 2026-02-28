@@ -1,7 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, ShoppingCart, User, LogOut, Menu, X, MessageCircle, Shield, Smartphone, Phone, Sun, Moon, Palette, Sparkles } from 'lucide-react';
+import {
+  Search,
+  ShoppingCart,
+  LogOut,
+  Menu,
+  X,
+  MessageCircle,
+  Shield,
+  Smartphone,
+  Phone,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -13,9 +23,11 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [scrolled, setScrolled] = useState(false);
+
   const { user, isAdmin, signOut } = useAuth();
   const { itemCount } = useCart();
   const { theme, toggleTheme } = useTheme();
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -42,8 +54,11 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Main header */}
-      <header className={`bg-card/95 backdrop-blur-xl border-b border-border sticky top-0 z-50 transition-shadow duration-300 ${scrolled ? 'shadow-lg shadow-primary/5' : ''}`}>
+      <header
+        className={`bg-card/95 backdrop-blur-xl border-b border-border sticky top-0 z-50 transition-shadow duration-300 ${
+          scrolled ? 'shadow-lg shadow-primary/5' : ''
+        }`}
+      >
         {/* Upper header */}
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16 gap-4">
@@ -56,20 +71,28 @@ const Navbar = () => {
                 <span className="text-lg font-bold tracking-tight text-foreground">
                   PAK SMART <span className="gradient-text">MOBILE</span>
                 </span>
-                <p className="text-[10px] text-muted-foreground -mt-1">Best Prices · Genuine Products</p>
+                <p className="text-[10px] text-muted-foreground -mt-1">
+                  Best Prices · Genuine Products
+                </p>
               </div>
             </Link>
 
-            {/* Search bar */}
-            <form onSubmit={handleSearch} className="flex-1 max-w-lg hidden md:flex">
+            {/* Search */}
+            <form
+              onSubmit={handleSearch}
+              className="flex-1 max-w-lg hidden md:flex"
+            >
               <div className="relative w-full">
                 <Input
                   placeholder="Search for phones, earbuds, chargers..."
                   value={searchQuery}
-                  onChange={e => setSearchQuery(e.target.value)}
+                  onChange={(e) => setSearchQuery(e.target.value)}
                   className="h-10 pl-4 pr-12 rounded-full bg-secondary border-border focus:border-primary focus:ring-2 focus:ring-primary/20"
                 />
-                <button type="submit" className="absolute right-1 top-1 h-8 w-8 flex items-center justify-center rounded-full gradient-bg text-white hover:opacity-90 transition-opacity">
+                <button
+                  type="submit"
+                  className="absolute right-1 top-1 h-8 w-8 flex items-center justify-center rounded-full gradient-bg text-white"
+                >
                   <Search className="w-4 h-4" />
                 </button>
               </div>
@@ -77,65 +100,95 @@ const Navbar = () => {
 
             {/* Actions */}
             <div className="flex items-center gap-1">
-              {/* WhatsApp Button */}
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                onClick={() => window.open('https://wa.me/923156305000', '_blank')}
+              {/* WhatsApp */}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() =>
+                  window.open('https://wa.me/923156305000', '_blank')
+                }
                 className="text-green-500 hover:text-green-400 gap-1.5"
-                title="Contact us on WhatsApp"
               >
                 <MessageCircle className="w-4 h-4" />
                 <span className="text-xs hidden sm:inline">WhatsApp</span>
               </Button>
 
-              {user && (
+              {/* If user logged in */}
+              {user ? (
                 <>
-                  <Button variant="ghost" size="sm" onClick={signOut} className="text-muted-foreground hover:text-foreground gap-1.5">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={signOut}
+                    className="text-muted-foreground hover:text-foreground gap-1.5"
+                  >
                     <LogOut className="w-4 h-4" />
                     <span className="text-xs">Logout</span>
                   </Button>
-                </>
-              )} : (
-                <>
-                  <Button asChild variant="outline" size="sm" className="rounded-full h-9 px-4 text-xs">
-                    <Link to="/auth">Sign In</Link>
-                  </Button>
-                </>
-              )}
 
-              {user && !isAdmin && (
-                <Button variant="ghost" size="sm" className="relative text-muted-foreground hover:text-foreground gap-1.5" onClick={() => navigate('/cart')}>
-                  <ShoppingCart className="w-4 h-4" />
-                  <span className="text-xs hidden sm:inline">Cart</span>
-                  {itemCount > 0 && (
-                    <Badge className="absolute -top-1 -right-1 h-5 w-5 p-0 flex items-center justify-center text-[10px] gradient-bg text-white border-0">
-                      {itemCount}
-                    </Badge>
+                  {!isAdmin && (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="relative text-muted-foreground hover:text-foreground gap-1.5"
+                      onClick={() => navigate('/cart')}
+                    >
+                      <ShoppingCart className="w-4 h-4" />
+                      <span className="text-xs hidden sm:inline">Cart</span>
+                      {itemCount > 0 && (
+                        <Badge className="absolute -top-1 -right-1 h-5 w-5 p-0 flex items-center justify-center text-[10px] gradient-bg text-white border-0">
+                          {itemCount}
+                        </Badge>
+                      )}
+                    </Button>
                   )}
+
+                  {isAdmin && (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="text-primary gap-1.5"
+                      onClick={() => navigate('/admin')}
+                    >
+                      <Shield className="w-4 h-4" />
+                      <span className="text-xs hidden sm:inline">Admin</span>
+                    </Button>
+                  )}
+                </>
+              ) : (
+                <Button
+                  asChild
+                  variant="outline"
+                  size="sm"
+                  className="rounded-full h-9 px-4 text-xs"
+                >
+                  <Link to="/auth">Sign In</Link>
                 </Button>
               )}
 
-              {isAdmin && (
-                <Button variant="ghost" size="sm" className="text-primary gap-1.5" onClick={() => navigate('/admin')}>
-                  <Shield className="w-4 h-4" />
-                  <span className="text-xs hidden sm:inline">Admin</span>
-                </Button>
-              )}
-
-              <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setMobileOpen(!mobileOpen)}>
-                {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {/* Mobile toggle */}
+              <Button
+                variant="ghost"
+                size="icon"
+                className="md:hidden"
+                onClick={() => setMobileOpen(!mobileOpen)}
+              >
+                {mobileOpen ? (
+                  <X className="w-5 h-5" />
+                ) : (
+                  <Menu className="w-5 h-5" />
+                )}
               </Button>
             </div>
           </div>
         </div>
 
-        {/* Navigation bar */}
+        {/* Navigation */}
         <div className="border-t border-border bg-card">
           <div className="container mx-auto px-4">
             <div className="hidden md:flex items-center justify-between h-11">
               <nav className="flex items-center gap-1">
-                {navLinks.map(link => (
+                {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     to={link.href}
@@ -172,15 +225,19 @@ const Navbar = () => {
                     <Input
                       placeholder="Search products..."
                       value={searchQuery}
-                      onChange={e => setSearchQuery(e.target.value)}
+                      onChange={(e) => setSearchQuery(e.target.value)}
                       className="h-10 pl-4 pr-10 rounded-full bg-secondary border-border"
                     />
-                    <button type="submit" className="absolute right-1 top-1 h-8 w-8 flex items-center justify-center rounded-full gradient-bg text-white">
+                    <button
+                      type="submit"
+                      className="absolute right-1 top-1 h-8 w-8 flex items-center justify-center rounded-full gradient-bg text-white"
+                    >
                       <Search className="w-4 h-4" />
                     </button>
                   </div>
                 </form>
-                {navLinks.map(link => (
+
+                {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     to={link.href}
