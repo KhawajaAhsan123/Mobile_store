@@ -105,7 +105,7 @@ const Navbar = () => {
                 variant="ghost"
                 size="sm"
                 onClick={() =>
-                  window.open('https://wa.me/923156305000', '_blank')
+                  window.open('https://wa.me/923292002727', '_blank')
                 }
                 className="text-green-500 hover:text-green-400 gap-1.5"
               >
