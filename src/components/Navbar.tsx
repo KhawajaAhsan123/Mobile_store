@@ -96,7 +96,7 @@ const Navbar = () => {
                     <span className="text-xs">Logout</span>
                   </Button>
                 </>
-              ) : (
+              )} : (
                 <>
                   <Button asChild variant="outline" size="sm" className="rounded-full h-9 px-4 text-xs">
                     <Link to="/auth">Sign In</Link>
