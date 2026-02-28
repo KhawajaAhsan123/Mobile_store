@@ -11,6 +11,8 @@ import {
   Shield,
   Smartphone,
   Phone,
+  Sun,
+  Moon,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -55,8 +57,8 @@ const Navbar = () => {
   return (
     <>
       <header
-        className={`bg-white/95 backdrop-blur-xl border-b border-orange-200 sticky top-0 z-50 transition-shadow duration-300 ${
-          scrolled ? 'shadow-lg shadow-orange-500/10' : ''
+        className={`bg-background/95 backdrop-blur-xl border-b border-border sticky top-0 z-50 transition-shadow duration-300 ${
+          scrolled ? 'shadow-lg shadow-primary/10' : ''
         }`}
       >
         {/* Upper header */}
@@ -87,7 +89,7 @@ const Navbar = () => {
                   placeholder="Search for phones, earbuds, chargers..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="h-10 pl-4 pr-12 rounded-full bg-gray-100 border-gray-300 focus:border-black focus:ring-2 focus:ring-black/20"
+                  className="h-10 pl-4 pr-12 rounded-full bg-muted border-border focus:border-primary focus:ring-2 focus:ring-primary/20"
                 />
                 <button
                   type="submit"
@@ -100,6 +102,23 @@ const Navbar = () => {
 
             {/* Actions */}
             <div className="flex items-center gap-1">
+              {/* Theme Toggle */}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={toggleTheme}
+                className="text-muted-foreground hover:text-foreground gap-1.5"
+              >
+                {theme === 'dark' ? (
+                  <Sun className="w-4 h-4" />
+                ) : (
+                  <Moon className="w-4 h-4" />
+                )}
+                <span className="text-xs hidden sm:inline">
+                  {theme === 'dark' ? 'Light' : 'Dark'}
+                </span>
+              </Button>
+
               {/* WhatsApp */}
               <Button
                 variant="ghost"
@@ -184,7 +203,7 @@ const Navbar = () => {
         </div>
 
         {/* Navigation */}
-        <div className="border-t border-orange-200 bg-white">
+        <div className="border-t border-border bg-background">
           <div className="container mx-auto px-4">
             <div className="hidden md:flex items-center justify-between h-11">
               <nav className="flex items-center gap-1">
@@ -194,16 +213,16 @@ const Navbar = () => {
                     to={link.href}
                     className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
                       location.pathname === link.href
-                        ? 'text-orange-900 bg-orange-100'
-                        : 'text-gray-700 hover:text-orange-900 hover:bg-orange-100'
+                        ? 'text-primary bg-primary/10'
+                        : 'text-muted-foreground hover:text-primary hover:bg-primary/10'
                     }`}
                   >
                     {link.label}
                   </Link>
                 ))}
               </nav>
-              <div className="flex items-center gap-2 text-sm text-gray-600">
-                <Phone className="w-3.5 h-3.5 text-orange-600" />
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Phone className="w-3.5 h-3.5 text-primary" />
                 <span className="font-medium">03-111-577-866</span>
               </div>
             </div>
@@ -217,7 +236,7 @@ const Navbar = () => {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="md:hidden border-t border-gray-200 overflow-hidden bg-white"
+              className="md:hidden border-t border-border overflow-hidden bg-background"
             >
               <div className="container mx-auto px-4 py-3">
                 <form onSubmit={handleSearch} className="mb-3">
@@ -226,7 +245,7 @@ const Navbar = () => {
                       placeholder="Search products..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="h-10 pl-4 pr-10 rounded-full bg-gray-100 border-gray-300"
+                      className="h-10 pl-4 pr-10 rounded-full bg-muted border-border"
                     />
                     <button
                       type="submit"
@@ -244,8 +263,8 @@ const Navbar = () => {
                     onClick={() => setMobileOpen(false)}
                     className={`block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors ${
                       location.pathname === link.href
-                        ? 'text-orange-900 bg-orange-100'
-                        : 'text-gray-700 hover:text-orange-900 hover:bg-orange-100'
+                        ? 'text-primary bg-primary/10'
+                        : 'text-muted-foreground hover:text-primary hover:bg-primary/10'
                     }`}
                   >
                     {link.label}

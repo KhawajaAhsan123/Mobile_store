@@ -125,6 +125,36 @@ export type Database = {
         }
         Relationships: []
       }
+      ratings: {
+        Row: {
+          created_at: string
+          id: string
+          product_id: string
+          rating: number
+          review: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          product_id: string
+          rating: number
+          review?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          product_id?: string
+          rating?: number
+          review?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -136,6 +166,18 @@ export type Database = {
           _user_id: string
         }
         Returns: boolean
+      }
+      get_product_average_rating: {
+        Args: {
+          _product_id: string
+        }
+        Returns: number
+      }
+      get_product_rating_count: {
+        Args: {
+          _product_id: string
+        }
+        Returns: number
       }
     }
     Enums: {

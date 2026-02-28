@@ -8,6 +8,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useCart } from '@/contexts/CartContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
+import ImageWithFallback from '@/components/ImageWithFallback';
 
 const stagger = {
   hidden: {},
@@ -73,6 +74,10 @@ const Index = () => {
             src={p.image_url}
             alt={p.name}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.src = 'https://via.placeholder.com/300x300/cccccc/666666?text=Product+Image';
+            }}
           />
         ) : (
           <Smartphone className="w-12 h-12 text-muted-foreground/20" />
@@ -145,10 +150,14 @@ const Index = () => {
 
             <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.3 }} className="hidden lg:grid grid-cols-2 gap-4">
               <div className="relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1592748993472-5d5a9790c3b?w=600&h=400&fit=crop" 
-                  alt="Latest smartphones" 
-                  className="rounded-2xl shadow-2xl w-full h-auto border-4 border-orange-200"
+                <img
+                  src="https://images.unsplash.com/photo-1592748993472-5d5a9790c3b?w=600&h=400&fit=crop"
+                  alt="Latest smartphones"
+                  className="rounded-2xl shadow-2xl w-full h-auto border-4 border-border"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = 'https://via.placeholder.com/600x400/cccccc/666666?text=Image+Not+Available';
+                  }}
                 />
                 <div className="absolute -bottom-4 -right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                   New Arrivals
@@ -207,7 +216,16 @@ const Index = () => {
                 <Link to={cat.href}>
                   <Card className="border border-border hover:border-primary/40 hover:shadow-xl transition-all duration-500 group overflow-hidden rounded-2xl">
                     <div className="aspect-[4/3] overflow-hidden bg-secondary/20 relative">
-                      <img src={cat.img} alt={cat.label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+                      <img
+                        src={cat.img}
+                        alt={cat.label}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        loading="lazy"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = 'https://via.placeholder.com/300x300/cccccc/666666?text=Category+Image';
+                        }}
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                     <CardContent className="p-4 text-center">
@@ -318,7 +336,7 @@ const Index = () => {
               <h4 className="font-semibold mb-4 text-sm">Quick Links</h4>
               <div className="space-y-2">
                 {['Home', 'Products', 'About Us', 'Contact Us'].map(l => (
-                  <Link key={l} to={`/${l === 'Home' ? '' : l.toLowerCase().replace(' ', '')}`} className="block text-sm text-background/60 hover:text-primary transition-colors">
+                  <Link key={l} to={`/${l === 'Home' ? '' : l.toLowerCase().replace(' us', '')}`} className="block text-sm text-background/60 hover:text-primary transition-colors">
                     {l}
                   </Link>
                 ))}
