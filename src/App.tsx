@@ -8,6 +8,7 @@ import { CartProvider } from "@/contexts/CartContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import Navbar from "@/components/Navbar";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Products from "./pages/Products";
@@ -26,23 +27,19 @@ const App = () => (
         <AnimatedBackground />
         <Toaster />
         <Sonner />
+        <WhatsAppButton />
         <BrowserRouter>
           <AuthProvider>
-            <CartProvider>
-              <div className="relative z-10">
-                <Navbar />
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/auth" element={<Auth />} />
-                  <Route path="/products" element={<Products />} />
-                  <Route path="/cart" element={<Cart />} />
-                  <Route path="/admin" element={<Admin />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </div>
-            </CartProvider>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/admin" element={<Admin />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
           </AuthProvider>
         </BrowserRouter>
       </ThemeProvider>
