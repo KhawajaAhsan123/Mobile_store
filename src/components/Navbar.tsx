@@ -55,8 +55,8 @@ const Navbar = () => {
   return (
     <>
       <header
-        className={`bg-card/95 backdrop-blur-xl border-b border-border sticky top-0 z-50 transition-shadow duration-300 ${
-          scrolled ? 'shadow-lg shadow-primary/5' : ''
+        className={`bg-white/95 backdrop-blur-xl border-b border-gray-200 sticky top-0 z-50 transition-shadow duration-300 ${
+          scrolled ? 'shadow-lg shadow-black/5' : ''
         }`}
       >
         {/* Upper header */}
@@ -87,7 +87,7 @@ const Navbar = () => {
                   placeholder="Search for phones, earbuds, chargers..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="h-10 pl-4 pr-12 rounded-full bg-secondary border-border focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  className="h-10 pl-4 pr-12 rounded-full bg-gray-100 border-gray-300 focus:border-black focus:ring-2 focus:ring-black/20"
                 />
                 <button
                   type="submit"
@@ -105,7 +105,7 @@ const Navbar = () => {
                 variant="ghost"
                 size="sm"
                 onClick={() =>
-                  window.open('https://wa.me/923292002727', '_blank')
+                  window.open('https://wa.me/923292002727 ', '_blank')
                 }
                 className="text-green-500 hover:text-green-400 gap-1.5"
               >
@@ -184,7 +184,7 @@ const Navbar = () => {
         </div>
 
         {/* Navigation */}
-        <div className="border-t border-border bg-card">
+        <div className="border-t border-gray-200 bg-white">
           <div className="container mx-auto px-4">
             <div className="hidden md:flex items-center justify-between h-11">
               <nav className="flex items-center gap-1">
@@ -194,16 +194,16 @@ const Navbar = () => {
                     to={link.href}
                     className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
                       location.pathname === link.href
-                        ? 'gradient-text bg-primary/5'
-                        : 'text-foreground hover:text-primary hover:bg-primary/5'
+                        ? 'gradient-text bg-black/5'
+                        : 'text-gray-700 hover:text-black hover:bg-gray-100'
                     }`}
                   >
                     {link.label}
                   </Link>
                 ))}
               </nav>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Phone className="w-3.5 h-3.5 text-primary" />
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <Phone className="w-3.5 h-3.5 text-black" />
                 <span className="font-medium">03-111-577-866</span>
               </div>
             </div>
@@ -217,7 +217,7 @@ const Navbar = () => {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="md:hidden border-t border-border overflow-hidden bg-card"
+              className="md:hidden border-t border-gray-200 overflow-hidden bg-white"
             >
               <div className="container mx-auto px-4 py-3">
                 <form onSubmit={handleSearch} className="mb-3">
@@ -226,7 +226,7 @@ const Navbar = () => {
                       placeholder="Search products..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="h-10 pl-4 pr-10 rounded-full bg-secondary border-border"
+                      className="h-10 pl-4 pr-10 rounded-full bg-gray-100 border-gray-300"
                     />
                     <button
                       type="submit"

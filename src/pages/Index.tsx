@@ -113,7 +113,7 @@ const Index = () => {
   return (
     <main className="page-background">
       {/* Hero Banner */}
-      <section className="relative overflow-hidden py-16 md:py-24">
+      <section className="relative overflow-hidden py-16 md:py-24 bg-gradient-to-br from-gray-50 to-gray-100">
         {/* Animated background blobs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-primary/10 blur-3xl float-animation" />
