@@ -169,7 +169,7 @@ const Index = () => {
       </section>
 
       {/* Features strip */}
-      <section className="border-y border-orange-200 bg-white py-6">
+      <section className="border-y border-border bg-card py-6">
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
@@ -214,13 +214,12 @@ const Index = () => {
             {categories.map(cat => (
               <motion.div key={cat.label} variants={scaleIn}>
                 <Link to={cat.href}>
-                  <Card className="border border-border hover:border-primary/40 hover:shadow-xl transition-all duration-500 group overflow-hidden rounded-2xl">
+                  <Card className="border border-border text-center hover:shadow-lg hover:border-primary/30 transition-all duration-300 h-full p overflow-hidden rounded-2xl">
                     <div className="aspect-[4/3] overflow-hidden bg-secondary/20 relative">
                       <img
                         src={cat.img}
                         alt={cat.label}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                        loading="lazy"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
                           target.src = 'https://via.placeholder.com/300x300/cccccc/666666?text=Category+Image';
