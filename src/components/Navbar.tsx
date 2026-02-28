@@ -194,7 +194,7 @@ const Navbar = () => {
                     to={link.href}
                     className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
                       location.pathname === link.href
-                        ? 'gradient-text bg-black/5'
+                        ? 'text-black bg-gray-100'
                         : 'text-gray-700 hover:text-black hover:bg-gray-100'
                     }`}
                   >
@@ -244,8 +244,8 @@ const Navbar = () => {
                     onClick={() => setMobileOpen(false)}
                     className={`block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors ${
                       location.pathname === link.href
-                        ? 'gradient-text bg-primary/5'
-                        : 'text-foreground hover:text-primary'
+                        ? 'text-black bg-gray-100'
+                        : 'text-gray-700 hover:text-black hover:bg-gray-100'
                     }`}
                   >
                     {link.label}
