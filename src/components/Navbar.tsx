@@ -11,15 +11,12 @@ import {
   Shield,
   Smartphone,
   Phone,
-  Sun,
-  Moon,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { useAuth } from '@/contexts/AuthContext';
 import { useCart } from '@/contexts/CartContext';
-import { useTheme } from '@/contexts/ThemeContext';
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -28,7 +25,6 @@ const Navbar = () => {
 
   const { user, isAdmin, signOut } = useAuth();
   const { itemCount } = useCart();
-  const { theme, toggleTheme } = useTheme();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -102,36 +98,6 @@ const Navbar = () => {
 
             {/* Actions */}
             <div className="flex items-center gap-1">
-              {/* Theme Toggle */}
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={toggleTheme}
-                className="text-muted-foreground hover:text-foreground gap-1.5"
-              >
-                {theme === 'dark' ? (
-                  <Sun className="w-4 h-4" />
-                ) : (
-                  <Moon className="w-4 h-4" />
-                )}
-                <span className="text-xs hidden sm:inline">
-                  {theme === 'dark' ? 'Light' : 'Dark'}
-                </span>
-              </Button>
-
-              {/* WhatsApp */}
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() =>
-                  window.open('https://wa.me/923292002727 ', '_blank')
-                }
-                className="text-green-500 hover:text-green-400 gap-1.5"
-              >
-                <MessageCircle className="w-4 h-4" />
-                <span className="text-xs hidden sm:inline">WhatsApp</span>
-              </Button>
-
               {/* If user logged in */}
               {user ? (
                 <>

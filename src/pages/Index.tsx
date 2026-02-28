@@ -194,7 +194,7 @@ const Index = () => {
       </section>
 
       {/* Categories */}
-      <section className="py-14">
+      <section className="py-14 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-10">
             <motion.h2 initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="text-2xl md:text-3xl font-bold text-foreground">
@@ -243,7 +243,7 @@ const Index = () => {
         <section className="py-14 bg-card">
           <div className="container mx-auto px-4">
             <div className="flex items-center justify-between mb-10">
-              <motion.h2 initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="text-2xl md:text-3xl font-bold text-foreground">
+              <motion.h2 initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="text-2xl md:text-3xl font-bold text-foreground dark:text-white">
                 Smart <span className="gradient-text">Phones</span>
               </motion.h2>
               <Link to="/products?category=mobiles" className="text-sm font-medium text-primary hover:underline flex items-center gap-1">
@@ -269,10 +269,10 @@ const Index = () => {
 
       {/* All Products */}
       {allProducts.length > 0 && (
-        <section className="py-14">
+        <section className="py-14 bg-card">
           <div className="container mx-auto px-4">
             <div className="flex items-center justify-between mb-10">
-              <motion.h2 initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="text-2xl md:text-3xl font-bold text-foreground">
+              <motion.h2 initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="text-2xl md:text-3xl font-bold text-foreground dark:text-white">
                 All <span className="gradient-text">Products</span>
               </motion.h2>
               <Link to="/products" className="text-sm font-medium text-primary hover:underline flex items-center gap-1">
@@ -300,7 +300,7 @@ const Index = () => {
       <section className="py-14 bg-card">
         <div className="container mx-auto px-4 max-w-4xl">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <h2 className="text-2xl font-bold text-foreground mb-4">
+            <h2 className="text-2xl font-bold text-foreground dark:text-white mb-4">
               Welcome to <span className="gradient-text">PAK SMART MOBILE</span>
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-4">

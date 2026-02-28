@@ -6,7 +6,9 @@ const AnimatedBackground: React.FC = () => {
   const { theme } = useTheme();
 
   const getBackgroundClass = () => {
-    return 'bg-gradient-to-br from-gray-900 via-purple-900 to-slate-800';
+    return theme === 'dark' 
+      ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900'
+      : 'bg-gradient-to-br from-gray-50 via-white to-gray-50';
   };
 
   const floatingShapes = [
@@ -88,7 +90,7 @@ const AnimatedBackground: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-gray-900 via-purple-900 to-slate-800 transition-all duration-1000 ease-in-out">
+    <div className={`fixed inset-0 ${getBackgroundClass()} transition-all duration-1000 ease-in-out`}>
       {/* Animated overlay patterns */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Geometric shapes with transparency */}
