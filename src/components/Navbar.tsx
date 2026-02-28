@@ -55,8 +55,8 @@ const Navbar = () => {
   return (
     <>
       <header
-        className={`bg-white/95 backdrop-blur-xl border-b border-gray-200 sticky top-0 z-50 transition-shadow duration-300 ${
-          scrolled ? 'shadow-lg shadow-black/5' : ''
+        className={`bg-white/95 backdrop-blur-xl border-b border-orange-200 sticky top-0 z-50 transition-shadow duration-300 ${
+          scrolled ? 'shadow-lg shadow-orange-500/10' : ''
         }`}
       >
         {/* Upper header */}
@@ -184,7 +184,7 @@ const Navbar = () => {
         </div>
 
         {/* Navigation */}
-        <div className="border-t border-gray-200 bg-white">
+        <div className="border-t border-orange-200 bg-white">
           <div className="container mx-auto px-4">
             <div className="hidden md:flex items-center justify-between h-11">
               <nav className="flex items-center gap-1">
@@ -194,8 +194,8 @@ const Navbar = () => {
                     to={link.href}
                     className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
                       location.pathname === link.href
-                        ? 'text-black bg-gray-100'
-                        : 'text-gray-700 hover:text-black hover:bg-gray-100'
+                        ? 'text-orange-900 bg-orange-100'
+                        : 'text-gray-700 hover:text-orange-900 hover:bg-orange-100'
                     }`}
                   >
                     {link.label}
@@ -203,7 +203,7 @@ const Navbar = () => {
                 ))}
               </nav>
               <div className="flex items-center gap-2 text-sm text-gray-600">
-                <Phone className="w-3.5 h-3.5 text-black" />
+                <Phone className="w-3.5 h-3.5 text-orange-600" />
                 <span className="font-medium">03-111-577-866</span>
               </div>
             </div>

@@ -113,13 +113,7 @@ const Index = () => {
   return (
     <main className="page-background">
       {/* Hero Banner */}
-      <section className="relative overflow-hidden py-16 md:py-24 bg-gradient-to-br from-gray-50 to-gray-100">
-        {/* Animated background blobs */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-primary/10 blur-3xl float-animation" />
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-accent/10 blur-3xl float-animation-delay" />
-        </div>
-
+      <section className="relative overflow-hidden py-16 md:py-24 bg-gradient-to-br from-orange-50 to-orange-100">
         <motion.div style={{ y: heroY }} className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as const }}>
@@ -127,56 +121,46 @@ const Index = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6"
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-600 text-white text-sm font-medium mb-6"
               >
-                <Sparkles className="w-4 h-4" /> Pakistan's #1 Mobile Store
+                <Smartphone className="w-4 h-4" /> Pakistan's #1 Mobile Store
               </motion.div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground mb-6 text-enhanced">
-                Best Prices.
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 mb-6">
+                Lowest Prices.
                 <br />
-                <span className="gradient-text">Genuine Products.</span>
+                <span className="text-orange-600">Genuine Products.</span>
               </h1>
-              <p className="text-lg text-muted-foreground mb-8 max-w-md leading-relaxed text-enhanced">
+              <p className="text-lg text-gray-600 mb-8 max-w-md leading-relaxed">
                 Pakistan's trusted destination for smartphones, accessories & more. PTA Approved devices with nationwide COD delivery.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button asChild size="lg" className="gradient-bg text-white hover:opacity-90 rounded-full h-13 px-8 font-semibold glow-primary text-base">
+                <Button asChild size="lg" className="bg-orange-600 text-white hover:bg-orange-700 rounded-full h-13 px-8 font-semibold text-base">
                   <Link to="/products">Shop Now <ArrowRight className="w-5 h-5 ml-2" /></Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="rounded-full h-13 px-8 border-primary/30 text-primary hover:bg-primary/5 text-base">
+                <Button asChild variant="outline" size="lg" className="rounded-full h-13 px-8 border-orange-300 text-orange-600 hover:bg-orange-50 text-base">
                   <Link to="/contact">Contact Us</Link>
                 </Button>
               </div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="hidden lg:grid grid-cols-2 gap-4"
-            >
-              {[
-                'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1590658268037-6bf12f032f55?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&h=250&fit=crop',
-                'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=250&fit=crop',
-              ].map((img, i) => (
-                <motion.div
-                  key={i}
-                  className={`rounded-2xl overflow-hidden shadow-lg ${i < 2 ? 'aspect-square' : 'aspect-video'} ${i % 2 === 0 ? 'float-animation' : 'float-animation-delay'}`}
-                  whileHover={{ scale: 1.05, rotate: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <img src={img} alt="Product" className="w-full h-full object-cover" loading="lazy" />
-                </motion.div>
-              ))}
+            <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.3 }} className="hidden lg:grid grid-cols-2 gap-4">
+              <div className="relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1592748993472-5d5a9790c3b?w=600&h=400&fit=crop" 
+                  alt="Latest smartphones" 
+                  className="rounded-2xl shadow-2xl w-full h-auto border-4 border-orange-200"
+                />
+                <div className="absolute -bottom-4 -right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  New Arrivals
+                </div>
+              </div>
             </motion.div>
           </div>
         </motion.div>
       </section>
 
       {/* Features strip */}
-      <section className="border-y border-border bg-card py-6">
+      <section className="border-y border-orange-200 bg-white py-6">
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
@@ -187,7 +171,7 @@ const Index = () => {
           >
             {features.map(f => (
               <motion.div key={f.label} variants={fadeUp} className="flex items-center gap-3 group">
-                <div className="w-11 h-11 rounded-xl gradient-bg flex items-center justify-center shrink-0 group-hover:glow-primary transition-shadow duration-300">
+                <div className="w-11 h-11 rounded-xl bg-orange-600 flex items-center justify-center shrink-0 group-hover:bg-orange-700 transition-shadow duration-300">
                   <f.icon className="w-5 h-5 text-white" />
                 </div>
                 <div>
