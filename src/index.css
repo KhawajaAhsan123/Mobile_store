@@ -8,13 +8,13 @@
   :root {
     /* Professional Mobile Store Color Scheme */
     --background: 0 0% 98%;
-    --foreground: 0 0% 30%;
+    --foreground: 0 0% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 30%;
+    --card-foreground: 0 0% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 30%;
+    --popover-foreground: 0 0% 15%;
 
     --primary: 217 91% 60%;
     --primary-foreground: 255 255 255%;
@@ -38,7 +38,7 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 0 0% 30%;
+    --sidebar-foreground: 0 0% 15%;
     --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 255 255 255%;
     --sidebar-accent: 210 40% 98%;
@@ -55,35 +55,35 @@
 
   .dark {
     --background: 222 47% 6%;
-    --foreground: 0 0% 95%;
+    --foreground: 0 0% 98%;
     --card: 222 40% 10%;
-    --card-foreground: 0 0% 95%;
+    --card-foreground: 0 0% 98%;
     --popover: 222 40% 10%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 25 84% 53%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
     --secondary: 222 30% 14%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary-foreground: 0 0% 98%;
     --muted: 222 20% 16%;
-    --muted-foreground: 220 10% 65%;
-    --accent: 262 83% 58%;
+    --muted-foreground: 220 10% 75%;
+    --accent: 142 76% 36%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
     --border: 222 20% 16%;
     --input: 222 20% 16%;
-    --ring: 262 83% 58%;
+    --ring: 142 76% 36%;
     --sidebar-background: 222 40% 10%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 262 83% 58%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 222 30% 14%;
-    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 222 20% 16%;
-    --sidebar-ring: 262 83% 58%;
-    --sale: 0 85% 50%;
-    --success: 152 69% 41%;
-    --warning: 38 92% 50%;
+    --sidebar-ring: 142 76% 36%;
+    --sale: 0 84% 60%;
+    --success: 34 97% 50%;
+    --warning: 45 93% 47%;
     --gradient-start: 217 91% 60%;
     --gradient-end: 142 76% 36%;
   }
