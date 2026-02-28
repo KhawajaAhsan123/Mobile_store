@@ -170,7 +170,7 @@ const Navbar = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="md:hidden"
+                className="md:hidden bg-orange-600 text-white hover:bg-orange-700 rounded-lg w-10 h-10"
                 onClick={() => setMobileOpen(!mobileOpen)}
               >
                 {mobileOpen ? (
@@ -244,8 +244,8 @@ const Navbar = () => {
                     onClick={() => setMobileOpen(false)}
                     className={`block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors ${
                       location.pathname === link.href
-                        ? 'text-black bg-gray-100'
-                        : 'text-gray-700 hover:text-black hover:bg-gray-100'
+                        ? 'text-orange-900 bg-orange-100'
+                        : 'text-gray-700 hover:text-orange-900 hover:bg-orange-100'
                     }`}
                   >
                     {link.label}
